@@ -7,6 +7,8 @@ A web service that provides an API for clients to run algorithms and perform upd
 - Uses Slim as the application Framework.
 - Uses Mysql and Doctrine for storing and querying data.
 - Uses PHP-DI
+- Uses symfony/console
+- Uses PHP dotenv
 
 ## Prerequisites
 
@@ -31,6 +33,11 @@ A web service that provides an API for clients to run algorithms and perform upd
 
 - [Postman collection](https://documenter.getpostman.com/view/3286293/S1TbTuks?version=latest)
 
+## Run Algorithms 
+######(i.e: run `make fixtures` first')
+
+   * Depth first search `make DFS`
+     
 ## Done 
 - [x] Graph CRUD
 - [x] Nodes CRUD.
