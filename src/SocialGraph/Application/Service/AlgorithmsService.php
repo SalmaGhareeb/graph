@@ -19,17 +19,19 @@ class AlgorithmsService
         $this->nodeRepository  = $nodeRepository;
     }
 
-    public function runDepthFirstSearch(string $graphName,string $root): array
+    public function runDepthFirstSearch(string $graphName, string $root): array
     {
-        dump($graphName);
-        dump($root);
         $graph = $this->graphRepository->findOneByName($graphName);
         if (!$graph) {
-            throw new NotFoundException();
+            throw new NotFoundException('Graph not found!');
         }
 
         $rootNode = $this->nodeRepository->findOneByName($root);
 
+        if (!$rootNode) {
+            throw new NotFoundException('Node not found!');
+        }
+        
         $search = new DepthFirstSearch($graph);
         $search->run($rootNode);
 
