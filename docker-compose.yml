@@ -1,0 +1,30 @@
+version: '3'
+services:
+  mysql:
+    build: ./Docker/mysql
+    restart: 'on-failure'
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=socialgraph
+    networks:
+      - default
+    ports:
+      - 4306:4306
+  php:
+    build: .
+    restart: 'on-failure'
+    command: php -S 0.0.0.0:8080 -t public
+    working_dir: /var/www
+    networks:
+      - default
+    environment:
+      docker: "true"
+    depends_on:
+      - mysql
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/var/www
+networks:
+  default:
+    driver: bridge
