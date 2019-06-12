@@ -34,13 +34,4 @@ class DepthFirstSearch extends Algorithm
             }
         }
     }
-
-    public function get(): array
-    {
-        return [
-            'dist'       => $this->dist,
-            'parent'     => $this->parent,
-            'discovered' => $this->discovered,
-        ];
-    }
 }

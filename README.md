@@ -34,9 +34,10 @@ A web service that provides an API for clients to run algorithms and perform upd
 - [Postman collection](https://documenter.getpostman.com/view/3286293/S1TbTuks?version=latest)
 
 ## Run Algorithms 
-######(i.e: run `make fixtures` first')
+_(i.e: run `make fixtures` first')_
 
-   * Depth first search `make DFS`
+   * Depth first search `make DFS`   
+   * Breadth first search `make BFS`
      
 ## Done 
 - [x] Graph CRUD

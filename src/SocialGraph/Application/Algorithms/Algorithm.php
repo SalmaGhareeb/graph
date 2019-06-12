@@ -42,4 +42,16 @@ abstract class Algorithm implements AlgorithmInterface
         $this->graph      = &$graph;
         $this->discovered = [];
     }
+
+    /**
+     * @return array
+     */
+    public function get(): array
+    {
+        return [
+            'dist'       => $this->dist,
+            'parent'     => $this->parent,
+            'discovered' => $this->discovered,
+        ];
+    }
 }
