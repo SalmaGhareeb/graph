@@ -4,3 +4,4 @@
 .env
 .db_data/*
 .idea/*
+.phpunit.result.cache

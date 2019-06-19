@@ -18,12 +18,25 @@ class AlgorithmsService
     private $graphRepository;
     private $nodeRepository;
 
+    /**
+     * AlgorithmsService constructor.
+     *
+     * @param \SocialGraph\Application\Repository\GraphRepository $graphRepository
+     * @param \SocialGraph\Application\Repository\NodeRepository  $nodeRepository
+     */
     public function __construct(GraphRepository $graphRepository, NodeRepository $nodeRepository)
     {
         $this->graphRepository = $graphRepository;
         $this->nodeRepository  = $nodeRepository;
     }
 
+    /**
+     * @param string $graphName
+     * @param string $root
+     *
+     * @return array
+     * @throws \SocialGraph\Port\Exception\NotFoundException
+     */
     public function runDepthFirstSearch(string $graphName, string $root): array
     {
         $graph = $this->graphRepository->findOneByName($graphName);
@@ -31,7 +44,7 @@ class AlgorithmsService
             throw new NotFoundException('Graph not found!');
         }
 
-        $rootNode = $this->nodeRepository->findOneBy(['name' => $root]);
+        $rootNode = $this->nodeRepository->findOneByName($root);
 
         if (!$rootNode) {
             throw new NotFoundException('Node not found!');

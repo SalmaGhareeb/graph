@@ -54,6 +54,7 @@ class Node implements NodeInterface, ModelInterface, ArrayExpressibleInterface
     public function __construct(GraphInterface $graph)
     {
         $this->graph = $graph;
+        $this->edges = new ArrayCollection();
         $graph->addNode($this);
     }
 

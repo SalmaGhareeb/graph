@@ -6,7 +6,7 @@ return [
     'settings.debug'               => true,
     'settings.displayErrorDetails' => true,
     'errorHandler'                 => static function ($c) {
-        return static function ($request, ResponseInterface $response, \Exception $exception) use ($c) {
+        return static function ($request, ResponseInterface $response, \Exception $exception) {
             return $response->withJson(['message' => $exception->getMessage(),
                                         'code'    => $exception->getCode()]);
         };

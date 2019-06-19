@@ -11,7 +11,7 @@ use SocialGraph\Application\Repository\UndirectedEdgeRepository;
 $settings = require __DIR__ . '/settings.php';
 
 return array_merge([
-    EntityManager::class            => static function (\Slim\Container $container) use ($settings) : EntityManager {
+    EntityManager::class            => static function () use ($settings) : EntityManager {
         $config = Setup::createAnnotationMetadataConfiguration(
             $settings['doctrine']['metadata_dirs'],
             $settings['doctrine']['dev_mode']
@@ -32,16 +32,16 @@ return array_merge([
     GraphRepository::class          => DI\factory(function (\DI\Container $c) {
         $em = $c->get(EntityManager::class);
 
-        return $em->getRepository('SocialGraph\Domain\Graph\Graph');
+        return $em->getRepository(\SocialGraph\Domain\Graph\Graph::class);
     }),
     NodeRepository::class           => DI\factory(function (\DI\Container $c) {
         $em = $c->get(EntityManager::class);
 
-        return $em->getRepository('SocialGraph\Domain\Node\Node');
+        return $em->getRepository(\SocialGraph\Domain\Node\Node::class);
     }),
     UndirectedEdgeRepository::class => DI\factory(function (\DI\Container $c) {
         $em = $c->get(EntityManager::class);
 
-        return $em->getRepository('SocialGraph\Domain\Edge\UndirectedEdge');
+        return $em->getRepository(\SocialGraph\Domain\Edge\UndirectedEdge::class);
     }),
 ], $settings);
