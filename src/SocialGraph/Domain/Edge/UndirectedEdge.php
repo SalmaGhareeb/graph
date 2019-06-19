@@ -3,7 +3,7 @@
 namespace SocialGraph\Domain\Edge;
 
 use Doctrine\ORM\Mapping as ORM;
-use http\Exception\InvalidArgumentException;
+use SocialGraph\Port\Exception\InvalidArgumentException;
 use SocialGraph\Port\Interfaces\NodeInterface;
 
 /**
@@ -14,7 +14,14 @@ use SocialGraph\Port\Interfaces\NodeInterface;
  */
 class UndirectedEdge extends Edge
 {
-
+    /**
+     * UndirectedEdge constructor.
+     *
+     * @param \SocialGraph\Port\Interfaces\NodeInterface $source
+     * @param \SocialGraph\Port\Interfaces\NodeInterface $destination
+     *
+     * @throws \SocialGraph\Port\Exception\InvalidArgumentException
+     */
     public function __construct(NodeInterface $source, NodeInterface $destination)
     {
         if ($source->getGraph() !== $destination->getGraph()) {
