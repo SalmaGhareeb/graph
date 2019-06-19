@@ -17,3 +17,5 @@ DFS:
 	docker-compose exec php php ./bin/console.php algorithms:DFS testCommand B
 BFS:
 	docker-compose exec php php ./bin/console.php algorithms:DFS testCommand B
+test:
+	docker-compose exec php ./vendor/bin/phpunit

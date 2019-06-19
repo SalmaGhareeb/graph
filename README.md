@@ -38,6 +38,9 @@ _(i.e: run `make fixtures` first')_
 
    * Depth first search `make DFS`   
    * Breadth first search `make BFS`
+   
+## Run Tests 
+   * `make test`
      
 ## Done 
 - [x] Graph CRUD
@@ -47,9 +50,10 @@ _(i.e: run `make fixtures` first')_
 - [x] Algorithms: BreadthFirstSearch
 - [x] Add Commands for each algorithm
 - [x] Setup docker
+- [x] Add at least one Test class.
 
 ## To Do
 - [ ] Handle directed graphs and loops
 - [ ] Create factories for create un/directed graph or edge
 - [ ] Add more algorithms implementations.
-- [ ] Test coverage.
+- [ ] Add more test coverage.
